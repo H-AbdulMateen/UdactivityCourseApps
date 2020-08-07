@@ -2,12 +2,15 @@
 
 # Principles of Navigation
 1)- There's always a starting place
+
 2)- You can always go back
+
 3)- Up goes back mostly
 
 # Q:What are advantages we get from using safe arguments?
 
 1)- We get type safety, as navigation generates the action and the argument class from the navigation graph.
+
 2)- We get argument enforcement, as non-default arguments are required parameters in the action.
 
 # Intents
