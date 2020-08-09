@@ -1,14 +1,15 @@
 
-#ViewModel:
+# ViewModel:
 Abstract class that holds your app's UI data. Survives configuration changes.
-##ViewModel Factory
+
+## ViewModel Factory
 A class that knows how to create view model
 
 
-##add dependency in build.gradle app level
+## Add dependency in build.gradle app level
 implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
-#Benifits of architecture
+# Benifits of architecture
 1- Organized
 
 2- Easier to debug
