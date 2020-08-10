@@ -10,7 +10,6 @@ A class that knows how to create view model
 implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
 # Benifits of architecture
-
 1- Organized
 
 2- Easier to debug
