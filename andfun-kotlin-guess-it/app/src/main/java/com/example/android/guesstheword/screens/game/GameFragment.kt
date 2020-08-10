@@ -21,7 +21,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -42,9 +41,9 @@ class GameFragment : Fragment() {
     // The list of words - the front of the list is the next word to guess
     private lateinit var binding: GameFragmentBinding
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
                 inflater,
@@ -53,17 +52,12 @@ class GameFragment : Fragment() {
                 false
         )
 
-
         Log.i(TAG, "ViewModelProvider.of()")
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        binding.gameViewModel = viewModel
+        binding.setLifecycleOwner(this)
 
-        viewModel.word.observe(this, Observer { newWord ->
-            binding.wordText.text = newWord
-        })
 
-        viewModel.score.observe(this, Observer { newSore ->
-            binding.scoreText.text = newSore.toString()
-        })
 
         viewModel.hasGameFinished.observe(this, Observer { hasGameFinished ->
             if (hasGameFinished){
@@ -72,16 +66,7 @@ class GameFragment : Fragment() {
             }
         })
 
-        viewModel.time.observe(this, Observer { time ->
-            timer_text.text = time.toString()
-        })
 
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-        }
         return binding.root
 
     }
